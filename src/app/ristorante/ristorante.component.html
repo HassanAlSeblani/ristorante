@@ -1,0 +1,5 @@
+<div>
+    <app-ristorante-form (tavoloAdded)="addTavolo($event)"></app-ristorante-form>
+    <app-ristorante-stats [tavoli]="tavoloList"></app-ristorante-stats>
+</div>
+<app-ristorante-list [tavoli]="tavoloList"></app-ristorante-list>

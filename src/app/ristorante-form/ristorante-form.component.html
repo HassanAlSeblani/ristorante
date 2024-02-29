@@ -1,0 +1,29 @@
+<div>
+    <h2>Inserisci Tavolo</h2>
+    <!-- Questo div racchiuderà tutti i campi di input della form -->
+    <div class="form">
+        <div class="form-group">
+            <!-- compare l'etichetta 'titolo'
+            a fianco dell'input, collegata alla proprietà 'title'-->
+            <label for="id">ID</label>
+            <input type="number" id="id" [(ngModel)]="id" min="0">
+        </div>
+        <div class="form-group">
+            <!-- compare l'etichetta 'titolo'
+            a fianco dell'input, collegata alla proprietà 'title'-->
+            <label for="posti">Posti</label>
+            <input type="number" id="posti" [(ngModel)]="posti" min="0">
+        </div>
+        <div class="form-group">
+            <label for="isRotondo">Rotondo</label>
+            <input type="checkbox" id="isRotondo" [(ngModel)]="isRotondo">
+        </div>
+        <div class="form-group">
+            <label for="isRiservato">Riservato</label>
+            <input type="checkbox" id="isRiservato" [(ngModel)]="isRiservato">
+        </div>
+        <div class="form-group">
+            <input type="reset" id="reset" (click)="resetForm()">
+            <input type="submit" id="invia" (click)="addTavolo()">
+        </div>
+    </div>
