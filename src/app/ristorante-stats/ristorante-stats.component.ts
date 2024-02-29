@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Tavolo } from '../model/tavolo';
+import { TavoloService } from '../service/tavolo.service';
 
 @Component({
   selector: 'app-ristorante-stats',
@@ -7,7 +8,11 @@ import { Tavolo } from '../model/tavolo';
   styleUrls: ['./ristorante-stats.component.css'],
 })
 export class RistoranteStatsComponent {
-  @Input() tavoli!: Tavolo[];
+  tavoli!: Tavolo[];
+
+  constructor(private tavoloService: TavoloService) {
+    this.tavoli = this.tavoloService.tavoloList;
+  }
 
   contaPrenotati(): number {
     let prenotati: number = 0;

@@ -1,12 +1,15 @@
 <h2>Tavoli Disponibili</h2>
 
-<ol>
-    <li *ngFor="let t of tavoli">Numero Tavolo: {{t.id}}
-        <ul>
-            <li>Posti: {{t.posti}}</li>
-            <!--Se in questo caso l'if Ã© false non mette niente-->
-            <li *ngIf="t.isRotondo">Tavolo Rotondo</li>
-            <li *ngIf="t.isRiservato">Riservato</li>
-        </ul>
-    </li>
-</ol>
+<div *ngFor="let t of tavoli" [ngClass]="{'riservato': t.isRiservato, 'libero': !t.isRiservato}">Numero Tavolo: {{t.id}}
+    <ul>
+        <li>Posti: {{t.posti}}</li>
+        <!--Se in questo caso l'if Ã© false non mette niente-->
+        <li *ngIf="t.isRotondo">Tavolo Rotondo</li>
+        <li *ngIf="t.isRiservato">Riservato</li>
+        <button (click)="riserva(t.id)">
+            <span *ngIf="t.isRiservato; else elseBlock">Annulla</span>
+        </button>
+        <ng-template #elseBlock><span>Prenota</span></ng-template>
+        <button (click)="elimina(t.id)">Elimina</button>
+    </ul>
+</div>
